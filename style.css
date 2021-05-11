@@ -38,12 +38,23 @@ body {
 
 .top_row {
     height: 2rem;
-    background-color: green;
+    /* background-color:green; */
+    display: flex;
 }
 
 .grid {
-    height: 2rem;
+    /* height:2rem; */
     background-color: lightblue;
+}
+
+.cell {
+    border: 1px solid;
+    min-width: 4rem;
+    text-align: center;
+}
+
+.row {
+    display: flex;
 }
 
 
@@ -94,11 +105,4 @@ body {
 
 .active {
     background-color: white;
-}
-
-.box {
-    height: 2rem;
-    width: 2rem;
-    border: 1px solid;
-    text-align: center;
 }
