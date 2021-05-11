@@ -15,10 +15,24 @@ body {
 .formula-container {
     /* border: 1px solid red; */
     height: 2rem;
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
+.formula-container>*{
+    height: 70%;
+
+}
+.address-input{
+    width : 4rem;
+}
+.formula-input{
+    width: calc(100vw - 6rem);
+}
 .grid-container {
+    position: relative;
     border: 1px solid red;
     height: calc(100vh - ( 4rem + 2rem + 2rem));
     background-color: lightgreen;
@@ -37,19 +51,29 @@ body {
 }
 
 .top_row {
+    left: 2rem;
+    top: 0rem;
+    position: absolute;
     height: 2rem;
+    
     /* background-color:green; */
     display: flex;
 }
 
 .grid {
     /* height:2rem; */
+    left: 2rem;
+    top: 2rem;
     background-color: lightblue;
+    position: absolute;
+    /* height: 2rem; */
+    /* display: flex; */
 }
 
 .cell {
     border: 1px solid;
-    min-width: 4rem;
+    min-width: 5rem;
+    height: 2rem;
     text-align: center;
 }
 
