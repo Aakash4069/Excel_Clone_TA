@@ -2,7 +2,9 @@ let leftCol = document.querySelector(".left_col");
 let topRow = document.querySelector(".top_row");
 let grid = document.querySelector(".grid");
 let addressInput=document.querySelector(".address-input");
-let bold=document.querySelector(".bold");
+let boldBtn=document.querySelector(".bold");
+let underlineBtn=document.querySelector(".underline");
+let italicBtn=document.querySelector(".italic");
 let rows = 100;
 let cols = 26
 for (let i = 0; i < rows; i++) {
@@ -49,16 +51,34 @@ for(let i=0 ; i < allCells.length; i++){
 }
 
 
-bold.addEventListener("click",function(){
+boldBtn.addEventListener("click",function(){
     
+   let uiCellElement=findUIElement();
+    uiCellElement.style.fontWeight = "bold"; 
+    
+})
+
+underlineBtn.addEventListener("click",function(){
+    
+    let uiCellElement=findUIElement();
+     uiCellElement.style.textDecoration = "underline"; 
+     
+})
+italicBtn.addEventListener("click",function(){
+    
+    let uiCellElement=findUIElement();
+     uiCellElement.style.fontStyle = "italic"; 
+     
+})
+
+function findUIElement(){
     let address =addressInput.value;
     let riciobj=getRIDCIDfromAddress(address);
     let rid=riciobj.rid;
     let cid=riciobj.cid;
     let uiCellElement=document.querySelector(`.cell[rid="${rid}"][cid="${cid}"]`);
-    uiCellElement.style.fontWeight="bold"; 
-    
-})
+    return uiCellElement;
+}
 
 function getRIDCIDfromAddress(address){
     let cid=Number(address.charCodeAt(0))-65;

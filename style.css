@@ -26,8 +26,15 @@ body {
 .bui-container{
 
     width: 21%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.bui-container>*{
+    width: 30%;
     height: 80%;
     text-align: center;
+
 }
 .align-container{
     width: 14%;
@@ -58,7 +65,7 @@ body {
 }
 .grid-container {
     position: relative;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     height: calc(100vh - ( 4rem + 2rem + 2rem));
     background-color: lightgreen;
     overflow: auto;
