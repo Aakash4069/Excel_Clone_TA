@@ -5,12 +5,37 @@
 body {
     margin: 0px;
 }
-
+/* ********menu container************* */
 .menu-container {
     /* border: 1px solid red; */
     height: 4rem;
     background-color: lightpink;
+    display: flex;
+    gap: 0.5rem;
+    padding-left: 0.5rem;
 }
+.menu-container *{
+    border: 1px solid;
+    height: 60%;
+
+
+}
+.font-family{
+    width: 21%;
+}
+.bui-container{
+
+    width: 21%;
+    height: 80%;
+    text-align: center;
+}
+.align-container{
+    width: 14%;
+}
+.color-container{
+    width: 10%;
+}
+
 
 .formula-container {
     /* border: 1px solid red; */

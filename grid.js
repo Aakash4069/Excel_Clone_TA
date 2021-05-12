@@ -2,6 +2,7 @@ let leftCol = document.querySelector(".left_col");
 let topRow = document.querySelector(".top_row");
 let grid = document.querySelector(".grid");
 let addressInput=document.querySelector(".address-input");
+let bold=document.querySelector(".bold");
 let rows = 100;
 let cols = 26
 for (let i = 0; i < rows; i++) {
@@ -26,7 +27,7 @@ for (let i = 0; i < rows; i++) {
         // cell.innerText = `${String.fromCharCode(65 + j)}  ${i+1}`
         cell.setAttribute("class", "cell");
         cell.setAttribute("rid",i);
-        cell.setAttribute("rid",j);
+        cell.setAttribute("cid",j);
         cell.setAttribute("contenteditable","true");
         row.appendChild(cell);
     }
@@ -35,13 +36,37 @@ for (let i = 0; i < rows; i++) {
 
 let allCells=document.querySelectorAll(".grid .cell");
 
-for(let i=0;i<allCells.length;i++){
-    let rid=allCells[i].getAttribute("rid");
-    let cid=allCells[i].getAttribute("cid");
-    rid=Number(rid);
-    cid=Number(cid);
-    let address=`${String.fromCharCode(65 + cid)}${rid + 1} `;
-    addressInput.value=address;
+for(let i=0 ; i < allCells.length; i++){
+    allCells[i].addEventListener("click",function(){
+
+        let rid=allCells[i].getAttribute("rid");
+        let cid=allCells[i].getAttribute("cid");
+        rid=Number(rid);
+        cid=Number(cid);
+        let address=`${String.fromCharCode(65 + cid)}${rid + 1} `;
+        addressInput.value = address;
+    })
 }
 
+
+bold.addEventListener("click",function(){
+    
+    let address =addressInput.value;
+    let riciobj=getRIDCIDfromAddress(address);
+    let rid=riciobj.rid;
+    let cid=riciobj.cid;
+    let uiCellElement=document.querySelector(`.cell[rid="${rid}"][cid="${cid}"]`);
+    uiCellElement.style.fontWeight="bold"; 
+    
+})
+
+function getRIDCIDfromAddress(address){
+    let cid=Number(address.charCodeAt(0))-65;
+    let rid=Number(address.slice(1))-1;
+    
+    return {
+        "rid" : rid,"cid" : cid
+    };
+    
+}
 allCells[0].click();

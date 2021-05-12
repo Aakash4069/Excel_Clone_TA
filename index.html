@@ -6,14 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="menu-container">
-        <select class="font-size"> </select>
-        <select class="font-family"> </select>
-        <!-- .bui-container .align -->
+        <select class="font-size"> 
+            <option value="8" >8</option>
+            <option value="10" >10</option>
+            <option value="12" >12</option>
+            <option value="14" >14</option>
+            <option value="16" >16</option>
+            <option value="18" >18</option>
+        </select>
+        <select class="font-family">
+            <option value="monospace" >monospace</option>
+            <option value="sans-serif" >sans-serif</option>
+            <option value="Georgia" >Georgia</option>
+            <option value="fantasy" > fantasy</option>
+            
+        </select>
+        <div class="bui-container">
+            <input type="button" class="bold" value="B"></input>
+            <input type="button" class="Underline" value="U"></input>
+            <input type="button" class="italic" value="I"></input>
+
+
+        </div>
+        
+         <div class="align-container"></div>
+         <div class="color-container"></div>
+
     </div>
     <div class="formula-container"> 
         <input type="text" class ="address-input" ></input>
