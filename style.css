@@ -37,10 +37,13 @@ body {
 
 }
 .align-container{
-    width: 14%;
+    min-width: 14%;
+    /* justify-content: space-around; */
+    text-align: center;
+    
 }
 .color-container{
-    width: 10%;
+   min-width: 10%;
 }
 
 
@@ -161,4 +164,11 @@ body {
 
 .active {
     background-color: white;
+}
+
+.active{
+    background-color: white;
+}
+.active-btn{
+    background-color:lightblue;
 }

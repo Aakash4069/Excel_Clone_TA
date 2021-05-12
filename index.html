@@ -12,13 +12,13 @@
 
 <body>
     <div class="menu-container">
-        <select class="font-size"> 
-            <option value="8" >8</option>
-            <option value="10" >10</option>
-            <option value="12" >12</option>
+        <select class="font-size" >                            
             <option value="14" >14</option>
-            <option value="16" >16</option>
-            <option value="18" >18</option>
+            <option value="18" selected >18</option>          
+            <option value="20" >20</option>
+            <option value="26" >26</option>
+            <option value="30" >30</option>
+            <option value="35" >35</option>
         </select>
         <select class="font-family">
             <option value="monospace" >monospace</option>
@@ -35,8 +35,16 @@
 
         </div>
         
-         <div class="align-container"></div>
-         <div class="color-container"></div>
+         <div class="align-container">
+            <input type="button" class="left" value="L">
+            <input type="button" class="center" value="C">
+            <input type="button" class="right" value="R">
+         </div>
+
+         <div class="color-container">
+            <input type="color" class="color">
+            <input type="color" class="bg-color">
+         </div>
 
     </div>
     <div class="formula-container"> 

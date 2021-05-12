@@ -5,6 +5,8 @@ let addressInput=document.querySelector(".address-input");
 let boldBtn=document.querySelector(".bold");
 let underlineBtn=document.querySelector(".underline");
 let italicBtn=document.querySelector(".italic");
+let alignBtns=document.querySelectorAll(".align-container>*")
+let fontSizeElem=document.querySelector(".font-size");
 let rows = 100;
 let cols = 26
 for (let i = 0; i < rows; i++) {
@@ -47,29 +49,39 @@ for(let i=0 ; i < allCells.length; i++){
         cid=Number(cid);
         let address=`${String.fromCharCode(65 + cid)}${rid + 1} `;
         addressInput.value = address;
+        
+        let cellObject=sheetDB[rid][cid];
+        if(cellObject.bold=="normal"){
+            boldBtn.classList.remove("active-btn");
+        }else{
+            boldBtn.classList.add("active-btn");
+        }
+        
+
     })
 }
+allCells[0].click();
 
+let sheetDB=[];
 
-boldBtn.addEventListener("click",function(){
-    
-   let uiCellElement=findUIElement();
-    uiCellElement.style.fontWeight = "bold"; 
-    
-})
+for(let i=0;i<rows;i++){
 
-underlineBtn.addEventListener("click",function(){
-    
-    let uiCellElement=findUIElement();
-     uiCellElement.style.textDecoration = "underline"; 
-     
-})
-italicBtn.addEventListener("click",function(){
-    
-    let uiCellElement=findUIElement();
-     uiCellElement.style.fontStyle = "italic"; 
-     
-})
+    let row=[];
+    for(let j=0;j<cols;j++){
+
+        let cell={
+            bold:"normal",
+            italic: "normal",
+            underline:"none",
+            hAlign: "center",
+            fontSize:"18",
+            color: "black",
+            bcolor:"none"
+        }
+        row.push(cell);
+    }
+    sheetDB.push(row);
+}
 
 function findUIElement(){
     let address =addressInput.value;
@@ -89,4 +101,58 @@ function getRIDCIDfromAddress(address){
     };
     
 }
-allCells[0].click();
+
+// Horizontal alignment
+for(let i=0;i<alignBtns.length;i++){
+
+    alignBtns[i].addEventListener("click",function(){
+        let alignment=alignBtns[i].getAttribute("class");
+        let uiCellElement=findUIElement();
+        uiCellElement.style.textAlign=alignment;
+    })
+
+}
+
+// font size
+
+fontSizeElem.addEventListener("change", function(){
+
+    let val=fontSizeElem.value;
+    let uiCellElement=findUIElement();
+    uiCellElement.style.fontSize= val + "px";
+
+})
+
+
+
+boldBtn.addEventListener("click",function(){
+    
+    let uiCellElement=findUIElement();
+     uiCellElement.style.fontWeight = "bold"; 
+     let rid=uiCellElement.getAttribute("rid");
+     let cid=uiCellElement.getAttribute("cid");
+     let cellObject=sheetDB[rid][cid];
+     if(cellObject.bold=="normal"){
+         cellObject.bold="bold";
+         boldBtn.classList.add("active-btn");
+         uiCellElement.style.fontWeight="bold";
+     }else{
+        cellObject.bold="normal";
+         boldBtn.classList.remove("active-btn");
+         uiCellElement.style.fontWeight="normal";
+     }
+     
+ })
+ 
+ underlineBtn.addEventListener("click",function(){
+     
+     let uiCellElement=findUIElement();
+      uiCellElement.style.textDecoration = "underline"; 
+      
+ })
+ italicBtn.addEventListener("click",function(){
+     
+     let uiCellElement=findUIElement();
+      uiCellElement.style.fontStyle = "italic"; 
+      
+ })
