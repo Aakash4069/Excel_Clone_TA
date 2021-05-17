@@ -56,7 +56,18 @@ for(let i=0 ; i < allCells.length; i++){
         }else{
             boldBtn.classList.add("active-btn");
         }
-        
+
+        if(cellObject.underline =="none"){
+            underlineBtn.classList.remove("active-btn");
+        }else{
+            underlineBtn.classList.add("active-btn");
+        }
+
+        if(cellObject.italic =="normal"){
+            italicBtn.classList.remove("active-btn");
+        }else{
+            italicBtn.classList.add("active-btn");
+        }
 
     })
 }
@@ -128,7 +139,7 @@ fontSizeElem.addEventListener("change", function(){
 boldBtn.addEventListener("click",function(){
     
     let uiCellElement=findUIElement();
-     uiCellElement.style.fontWeight = "bold"; 
+    //  uiCellElement.style.fontWeight = "bold"; 
      let rid=uiCellElement.getAttribute("rid");
      let cid=uiCellElement.getAttribute("cid");
      let cellObject=sheetDB[rid][cid];
@@ -147,12 +158,37 @@ boldBtn.addEventListener("click",function(){
  underlineBtn.addEventListener("click",function(){
      
      let uiCellElement=findUIElement();
-      uiCellElement.style.textDecoration = "underline"; 
+    //   uiCellElement.style.textDecoration = "underline"; 
+      let rid=uiCellElement.getAttribute("rid");
+      let cid=uiCellElement.getAttribute("cid");
+      let cellObject=sheetDB[rid][cid];
+      if(cellObject.underline == "none"){
+          cellObject.underline="underline";
+          underlineBtn.classList.add("active-btn");
+          uiCellElement.style.textDecoration="underline";
+      }else{
+         cellObject.underline="none";
+          underlineBtn.classList.remove("active-btn");
+          uiCellElement.style.textDecoration = "none";
+      }
       
  })
  italicBtn.addEventListener("click",function(){
      
      let uiCellElement=findUIElement();
-      uiCellElement.style.fontStyle = "italic"; 
+    //   uiCellElement.style.fontStyle = "italic"; 
+    //   uiCellElement.style.textDecoration = "underline"; 
+      let rid=uiCellElement.getAttribute("rid");
+      let cid=uiCellElement.getAttribute("cid");
+      let cellObject=sheetDB[rid][cid];
+      if(cellObject.itelic == "normal"){
+          cellObject.italic="italic";
+          italicBtn.classList.add("active-btn");
+          uiCellElement.style.fontStyle="italic";
+      }else{
+         cellObject.italic="normal";
+          italicBtn.classList.remove("active-btn");
+          uiCellElement.style.fontStyle = "normal";
+      }
       
  })
