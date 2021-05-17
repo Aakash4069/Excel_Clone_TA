@@ -2,8 +2,8 @@ let btnContainer = document.querySelector(".add-sheet_btn-container");
 let sheetList = document.querySelector(".sheet-list");
 let firstSheet = document.querySelector(".sheet");
 firstSheet.addEventListener("click", makeMeActive)
-    // day 1 is
-btnContainer.addEventListener("click", function() {
+// day 1 is
+btnContainer.addEventListener("click", function () {
     // create sheet 
     let AllSheets = document.querySelectorAll(".sheet");
     let lastSheet = AllSheets[AllSheets.length - 1];
@@ -21,7 +21,6 @@ btnContainer.addEventListener("click", function() {
     // new sheet create 
     Newsheet.addEventListener("click", makeMeActive)
 })
-
 function makeMeActive(e) {
     // evnt listener  add 
     let sheet = e.currentTarget;
